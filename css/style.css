@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+input {
+    padding: 5px;
+}
+
+.title {
+    background: #ccc;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.add {
+    display: flex;
+    width: 15%;
+    position: fixed;
+    top: 85%;
+    left: 80%;
+    cursor: pointer;
+}
+
+.add:hover {
+    transform: scale(1.2,1.2);
+}
+
+.form {
+    width: 100%;
+    margin-left: -100%;
+    transition: .7s;
+    position: absolute;
+    top: 0;
+}
+
+textarea {
+    width: 70%;
+    height: 60px;
+    margin: 10px 12%;
+    padding: 5px;
+}
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+ul{
+    width: 85%;
+    height: 50px;
+    margin: 10px auto;
+    border: 1px solid rgb(192, 192, 192);
+    background-color: rgba(204, 204, 204, .3);
+    border-radius: 5px;
+    padding: 7px;
+}
+ @media (min-width: 500px) {
+
+     ul {
+         width: 250px;
+         margin: 10px;
+     }
+
+     .add {
+         width: 6%;
+     }
+ }
+
+ @media (min-width: 800px) {
+
+    ul {
+        width: 350px;
+        margin: 10px;
+    }
+
+    .add {
+        width: 4%;
+        left: 90%;
+    }
+}
