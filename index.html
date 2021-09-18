@@ -16,7 +16,17 @@
             <div class="error" id="error" style="color: red;">Por favor, preencha o campo</div>
     
             <div class="tasker-header" id="tasker-header">
-                <textarea name="" id="input-task" placeholder="Nova tarefa"cols="30" rows="10"></textarea>
+
+                <textarea name="" id="area" placeholder="Nova tarefa"cols="30" rows="10"></textarea>
+                <br>
+                <label for="">Escolha a prioridade:</label>
+                <select name="" id="prioridade">
+                    <option value=""></option>
+                    <option value="normal">Normal</option>
+                    <option value="alerta">Alerta</option>
+                    <option value="urgente">Urgente</option>
+                </select>
+
             </div>
         </form>
 
@@ -31,6 +41,8 @@
         <div class="tasker-body">
         </div>
     </section>
+
+    <section class="no-nota" id="no-nota">Adicione um tarefa</section>
 
     <section class="add" id="add">
         <img src="img/adicionar-ficheiro.png" alt="">

@@ -35,6 +35,8 @@ input {
     top: 85%;
     left: 80%;
     cursor: pointer;
+    filter: drop-shadow(3px 3px 3px rgb(0, 0, 0));
+
 }
 
 .add:hover {
@@ -47,6 +49,7 @@ input {
     transition: .7s;
     position: absolute;
     top: 0;
+    background: #ccc;
 }
 
 textarea {
@@ -56,10 +59,16 @@ textarea {
     padding: 5px;
 }
 
+label {
+    margin-left: 12%;
+}
+
 .btn {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .btn button {
@@ -76,6 +85,31 @@ ul{
     border-radius: 5px;
     padding: 7px;
 }
+
+ul button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    margin-right: 5px;
+}
+
+.no-nota {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: rgb(192, 192, 192);
+}
+
+.error {
+    text-align: center;
+    margin-top: 5px;
+}
+/*
+                 Responsive
+*/
  @media (min-width: 500px) {
 
      ul {
