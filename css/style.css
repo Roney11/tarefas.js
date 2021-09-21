@@ -91,13 +91,12 @@ ul button {
     height: 10px;
     border-radius: 50%;
     border: none;
-    margin-right: 5px;
 }
 
 ul h4 {
     color: rgb(73, 73, 73);
     font-size: 1rem;
-    width: 80%;
+    width: 90%;
     margin: -20px auto 20px auto;
 }
 
@@ -108,7 +107,7 @@ ul p {
 }
 
 .no-nota {
-    height: 90vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -51,7 +51,7 @@ function form() {
         //Pegando o dia e hora que o arquivo foi criado
 
         const dia = new Date()
-        const diaAtual = dia.getUTCDate() -1
+        const diaAtual = dia.getUTCDate()
         const mesAtual = dia.getUTCMonth() +1
         const anoAtual = dia.getUTCFullYear()
         const hora = dia.getHours()
