@@ -51,8 +51,20 @@ function form() {
         contentUlBtn.classList.add('verificar-urgencia')
         
 
-        //Pegando o dia e hora que o arquivo foi criado
+        //criando a opcao de excluir ou marcar como feito
+        const newDiv = document.createElement('div')
+        const button1 = document.createElement('button')
+        const button2 = document.createElement('button')
+        newUl.appendChild(newDiv)
+        newDiv.appendChild(button1)
+        newDiv.appendChild(button2)
+        newDiv.classList.add('editar')
+        button1.classList.add('feito')
+        button1.innerHTML = 'Feito'
+        button2.classList.add('excluir')
+        button2.innerHTML = 'Excluir'
 
+        //Pegando o dia e hora que o arquivo foi criado
         const dia = new Date()
         const diaAtual = dia.getUTCDate()
         const mesAtual = dia.getUTCMonth() +1
@@ -72,26 +84,13 @@ function form() {
         p.appendChild(contentUlP)
 
 
+
         //adicionando o elemento criado ao DOM
         const ulAtual = document.getElementById('tasker-body')
         document.body.insertBefore(newUl, ulAtual)
 
         document.getElementById('area').value = ''
-        document.getElementById('form').style.marginLeft = '-100%'
-
-        //criando a opcao de excluir ou marcar como feito
-        const newDiv = document.createElement('div')
-        const button1 = document.createElement('button')
-        const button2 = document.createElement('button')
-        newUl.appendChild(newDiv)
-        newDiv.appendChild(button1)
-        newDiv.appendChild(button2)
-        newDiv.classList.add('editar')
-        button1.classList.add('feito')
-        button1.innerHTML = 'Feito'
-        button2.classList.add('excluir')
-        button2.innerHTML = 'Excluir'
-        
+        document.getElementById('form').style.marginLeft = '-100%'       
 
         //verificando a urgência da tarefa
         const select = document.getElementById('prioridade')
@@ -102,8 +101,8 @@ function form() {
             newUl.style.borderColor = 'rgb(4, 175, 4)'
         }
         if(prioridade == 'alerta') {
-            newUl.style.borderColor = 'rgb(207, 207, 11)'
-            contentUlBtn.style.background = 'rgb(207, 207, 11)'
+            newUl.style.borderColor = 'rgb(255, 255, 0)'
+            contentUlBtn.style.background = 'rgb(255, 255, 0)'
         }
         if(prioridade == 'urgente') {
             contentUlBtn.style.background = 'rgb(255, 0, 0)'
@@ -113,35 +112,47 @@ function form() {
 }
 form()
 
-
+//função para remover a tarefa adicionando um evento de 
+//clique em cada botão
 function removerTarefa() {
     let ul = document.getElementsByTagName('ul')
 
+    //verificando se existe alguma tarefa antes de executar
+    //a função para não dar erro no console
     if(ul.length > 0) {
         let excluir = document.querySelectorAll('.excluir')
         excluir.forEach((i) => {
             i.addEventListener('click', deletTarefa)
         })
-
+    //criando uma variavel pegando o pai do botão que
+    //está sendo clicado
+    //Também foi adicionado um alerta se realmente quer 
+    //excluir o conteudo
         function deletTarefa() {
+           const deletAlert = confirm('Deseja realmente excluir esta tarefa?')
+           if(deletAlert == true) {
             const pai = this.parentNode.parentNode
             pai.style.display = 'none'
+           }
         }
     } 
             
 }
 
-
+//função para concluir a tarefa adicionando um evento de 
+//clique em cada botão
 function Tarefaconcluida() {
     let ul = document.getElementsByTagName('ul')
 
+    //verificando se existe alguma tarefa antes deexecutar
+    //a função para não dar erro no console
     if(ul.length > 0) {
-
         let feito = document.querySelectorAll('.feito')
         feito.forEach((i) => {
             i.addEventListener('click', concluirTarefa)
         })
-    
+    //criando uma variavel pegando o pai do botão que
+    //está sendo clicado
         function concluirTarefa() {
             const pai = this.parentNode.parentNode
                 pai.style.opacity = '.5'
