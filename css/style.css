@@ -86,7 +86,7 @@ ul {
     padding: 7px;
 }
 
-ul button {
+ul button.verificar-urgencia {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -107,7 +107,7 @@ ul p {
 }
 
 .no-nota {
-    height: 95vh;
+    height: 92vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,6 +118,33 @@ ul p {
 .no-nota p {
     filter: drop-shadow(3px 3px 3px rgb(114, 114, 114));
     color: rgb(109, 109, 109);
+}
+
+.editar {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.editar button{
+    padding: 5px;
+    width: 60px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.editar button.feito{
+    padding: 5px;
+    width: 60px;
+    background-color: rgb(8, 218, 1);
+    color: #fff;
+}
+.editar button.excluir{
+    background-color: rgb(250, 0, 0);
+    color: #fff;
 }
 
 .error {

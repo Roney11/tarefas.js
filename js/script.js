@@ -31,6 +31,8 @@ function form() {
         }else {
             document.getElementById('no-nota').style.display = 'none'
             creatNotas()
+            removerTarefa()
+            Tarefaconcluida()
         }
     }
     //adicionar o conteúdo do form no DOM
@@ -46,6 +48,7 @@ function form() {
         newUl.appendChild(contentUlBtn)
         newUl.appendChild(h4)
         h4.appendChild(contentUl)
+        contentUlBtn.classList.add('verificar-urgencia')
         
 
         //Pegando o dia e hora que o arquivo foi criado
@@ -69,14 +72,26 @@ function form() {
         p.appendChild(contentUlP)
 
 
-
-
         //adicionando o elemento criado ao DOM
         const ulAtual = document.getElementById('tasker-body')
         document.body.insertBefore(newUl, ulAtual)
 
         document.getElementById('area').value = ''
         document.getElementById('form').style.marginLeft = '-100%'
+
+        //criando a opcao de excluir ou marcar como feito
+        const newDiv = document.createElement('div')
+        const button1 = document.createElement('button')
+        const button2 = document.createElement('button')
+        newUl.appendChild(newDiv)
+        newDiv.appendChild(button1)
+        newDiv.appendChild(button2)
+        newDiv.classList.add('editar')
+        button1.classList.add('feito')
+        button1.innerHTML = 'Feito'
+        button2.classList.add('excluir')
+        button2.innerHTML = 'Excluir'
+        
 
         //verificando a urgência da tarefa
         const select = document.getElementById('prioridade')
@@ -97,4 +112,44 @@ function form() {
     }
 }
 form()
+
+
+function removerTarefa() {
+    let ul = document.getElementsByTagName('ul')
+
+    if(ul.length > 0) {
+        let excluir = document.querySelectorAll('.excluir')
+        excluir.forEach((i) => {
+            i.addEventListener('click', deletTarefa)
+        })
+
+        function deletTarefa() {
+            const pai = this.parentNode.parentNode
+            pai.style.display = 'none'
+        }
+    } 
+            
+}
+
+
+function Tarefaconcluida() {
+    let ul = document.getElementsByTagName('ul')
+
+    if(ul.length > 0) {
+
+        let feito = document.querySelectorAll('.feito')
+        feito.forEach((i) => {
+            i.addEventListener('click', concluirTarefa)
+        })
+    
+        function concluirTarefa() {
+            const pai = this.parentNode.parentNode
+                pai.style.opacity = '.5'
+        }
+               
+    } 
+            
+}
+
+
 
